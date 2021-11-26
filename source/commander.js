@@ -95,7 +95,7 @@ class Commander{
     //REALIZA UM FLIP A DIREITA
     sendFlip(distance=20){
         return new Promise((res,rej)=>{
-            this.socket.send(`Flip b ${distance}`, 0, `Flip b ${distance}`, this.port,this.host, (error)=>{
+            this.socket.send(`flip b ${distance}`, 0, `flip b ${distance}`, this.port,this.host, (error)=>{
                 if (error) {
                     return rej(error)
                 }else{
@@ -104,6 +104,34 @@ class Commander{
             })
         })
     }
+
+    //REALIZA ROTACAO
+    sendCw(distance=20){
+        return new Promise((res,rej)=>{
+            this.socket.send(`cw  ${distance}`, 0, `cw  ${distance}`, this.port,this.host, (error)=>{
+                if (error) {
+                    return rej(error)
+                }else{
+                    return res()
+                }
+            })
+        })
+    }
+    //REALIZA VOLTAR ROTACAO
+    sendCcw(distance=20){
+        return new Promise((res,rej)=>{
+            this.socket.send(`ccw  ${distance}`, 0, `ccw  ${distance}`, this.port,this.host, (error)=>{
+                if (error) {
+                    return rej(error)
+                }else{
+                    return res()
+                }
+            })
+        })
+    }
+
+
+
     //REALIZA UM FLIP A DIREITA
     getBattery(){
         return new Promise((res,rej)=>{

@@ -39,6 +39,18 @@ class CommandParser{
                 drone.onLeft(dist)
                 return true
             }
+            //rotacionando
+            if (line.startsWith ('cw')) {
+                const [,dist] = line.split(" ")
+                drone.onCw(dist)
+                return true
+            }
+            //anti rotacao
+            if (line.startsWith ('ccw')) {
+                const [,dist] = line.split(" ")
+                drone.onCcw(dist)
+                return true
+            }
 
             return false
         }
